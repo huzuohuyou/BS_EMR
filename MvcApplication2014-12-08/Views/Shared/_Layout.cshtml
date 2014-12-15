@@ -1,0 +1,72 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8" />
+    <title>@ViewBag.Title - My ASP.NET MVC Application</title>
+    <link href="~/favicon.ico" rel="shortcut icon" type="image/x-icon" />
+    <meta name="viewport" content="width=device-width" />
+    @Styles.Render("~/Content/css")
+    @Styles.Render("~/Content/FirstPage")
+    @Scripts.Render("~/bundles/modernizr")
+    @*  @Scripts.Render("~/Content/easyui/easyui.min")
+        @Scripts.Render("~/Content/easyui/min")
+        @Scripts.Render("~/Content/easyui/easyloader")
+        @Styles.Render("~/Content/easyui/themes/icon");*@
+    <script language="JavaScript" type="text/javascript" src="~/Content/easyui/jquery.min.js"
+        charset="utf-8"></script>
+    <!--(指定编码方式，防止出现乱码)引入EasyUI中使用的Jquery版本-->
+    <script language="JavaScript" type="text/javascript" src="~/Content/easyui/jquery.easyui.min.js"
+        charset="utf-8"></script>
+    <!--(指定编码方式，防止出现乱码)引入EasyUi文件-->
+    <link rel="stylesheet" type="text/css" href="~/Content/easyui/themes/default/easyui.css" />
+    <!--引入CSS样式-->
+    <link rel="stylesheet" type="text/css" href="~/Content/easyui/themes/icon.css" />
+    <!--Icon引入-->
+    <script language="JavaScript" type="text/javascript" src="~/Content/easyui/locale/easyui-lang-zh_CN.js"></script>
+    <script language="JavaScript" type="text/javascript" src="~/Scripts/datagrid-groupview.js"></script>
+</head>
+<body class="easyui-layout">
+    <div data-options="region:'north',border:false" style="height: 80px; background: #B3DFDA;
+        padding: 10px">
+     @*   <header>*@
+            <div class="content-wrapper">
+                <div class="float-left">
+                    <p class="site-title">@Html.ActionLink("your logo here", "Index", "Home")</p>
+                </div>
+                <div class="float-right">
+                    <section id="login">
+                        @Html.Partial("_LoginPartial")
+                    </section>
+                    <nav>
+                        <ul id="menu">
+                            <li>@Html.ActionLink("Home", "Index", "Home")</li>
+                            <li>@Html.ActionLink("About", "About", "Home")</li>
+                            <li>@Html.ActionLink("Contact", "Contact", "Home")</li>
+                        </ul>
+                    </nav>
+                </div>
+            </div>
+       @* </header>*@
+    </div>
+    <div data-options="region:'west',split:true,title:'West'" style="width: 200px; padding: 10px;">
+        west content</div>
+    <div data-options="region:'center',title:'Center'">
+        <div id="body">
+            @RenderSection("featured", required: false)
+            <section class="content-wrapper main-content clear-fix">
+                @RenderBody()
+            </section>
+        </div>
+    </div>
+    <div data-options="region:'south',border:false" style="height:30px;background:#A9FACD;padding:10px;">电子病历首页网页版v1.0</div>
+    @*<footer>
+            <div class="content-wrapper">
+                <div class="float-left">
+                    <p>&copy; @DateTime.Now.Year - My ASP.NET MVC Application</p>
+                </div>
+            </div>
+        </footer>*@
+    @Scripts.Render("~/bundles/jquery")
+    @RenderSection("scripts", required: false)
+</body>
+</html>
