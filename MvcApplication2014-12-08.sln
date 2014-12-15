@@ -1,0 +1,20 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 11.00
+# Visual Studio 2010
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MvcApplication2014-12-08", "MvcApplication2014-12-08\MvcApplication2014-12-08.csproj", "{BAB05AE9-5D79-410C-AD7C-9B074C198BDE}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{BAB05AE9-5D79-410C-AD7C-9B074C198BDE}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{BAB05AE9-5D79-410C-AD7C-9B074C198BDE}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{BAB05AE9-5D79-410C-AD7C-9B074C198BDE}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{BAB05AE9-5D79-410C-AD7C-9B074C198BDE}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+EndGlobal

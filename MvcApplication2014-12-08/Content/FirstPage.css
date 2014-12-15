@@ -1,0 +1,115 @@
+﻿
+.background
+{
+	margin-left: auto;
+	margin-right: auto;
+	background-color: #FFF;
+}
+#body {
+    clear: both;
+    padding-bottom: 35px;
+    background-color: black;
+}
+#hospitalname
+{
+	width: auto;
+	height: 54px;
+	font-size:18px;
+	text-align:center;
+	position:relative;
+}
+
+#hospitalname p
+{
+	position:absolute;
+	bottom:0px;
+	padding:0px;
+	margin:0px;
+	text-align:center;
+}
+.emrtitle
+{
+	width: auto;
+	height: 34px;
+	font-size:24px;
+	text-align:center;
+}
+input
+{
+	border:1px solid;
+	border-top:0px; border-left:0px;border-right:0px;
+}	
+.threeworldtextbox
+{
+	padding : 0px; 
+	margin :0px; 
+	width : 60px;
+	
+}
+.onerow
+{
+	width: auto;
+	height: 44px;
+}
+	
+.mytable
+{
+	margin-top:20px;
+	width: auto;
+	
+}
+.tenworldtextbox	
+{
+	padding : 0px; 
+	margin :0px; 
+	width : 120px;
+	
+	}
+	.twentyworldtextbox	
+{
+	padding : 0px; 
+	margin :0px; 
+	width : 240px;
+	}
+.lefttext
+{
+	
+	float:left;
+	height:24px;
+	line-height:24px;
+	margin-left:20px;
+	margin-top: 20px;
+}
+.valueitem
+{
+	
+	float:left;
+	height:24px;
+	line-height:24px;
+	margin-left:0px;
+	margin-top: 20px;
+}	
+.unit
+{
+	float:left;
+	height:24px;
+	line-height:24px;
+	margin-top: 20px;
+	margin-left:5px;
+}
+.thinline
+{
+	border-top:1px;
+	border-top-style:solid;
+}
+.doublethinline
+{
+	border-top:1.5px;
+	border-top-style:solid;
+}
+.description
+{
+	height: 84px;
+	margin:20px;
+	text-align:center;
+}
