@@ -43,7 +43,7 @@ input
 	padding : 0px; 
 	margin :0px; 
 	width : 60px;
-	
+	text-align:center;
 }
 .onerow
 {
@@ -62,13 +62,14 @@ input
 	padding : 0px; 
 	margin :0px; 
 	width : 120px;
-	
+	text-align:center;
 	}
 	.twentyworldtextbox	
 {
 	padding : 0px; 
 	margin :0px; 
 	width : 240px;
+	text-align:center;
 	}
 .lefttext
 {
@@ -81,12 +82,12 @@ input
 }
 .valueitem
 {
-	
 	float:left;
 	height:24px;
 	line-height:24px;
 	margin-left:0px;
 	margin-top: 20px;
+	text-align:center;
 }	
 .unit
 {

@@ -23,6 +23,8 @@ namespace MvcApplication2014_12_08.Controllers
         [AllowAnonymous]
         public ActionResult Login(string returnUrl)
         {
+            pat_visit p = new pat_visit();
+            p.GetPat_Visit();
             ViewBag.ReturnUrl = returnUrl;
             return View();
         }

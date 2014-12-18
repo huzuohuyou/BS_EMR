@@ -1,4 +1,5 @@
-﻿<div class="darkborder">
+﻿@{var pat_visit = (MvcApplication2014_12_08.Models.pat_visit)ViewData.Model;}
+<div class="darkborder">
     <div id="hospitalname">
         XXX省第一人民医院
     </div>
@@ -16,13 +17,13 @@
         <div class="lefttext">
             第</div>
         <div class="valueitem">
-            <input class="threeworldtextbox" type="text" /></div>
+            <input class="threeworldtextbox" type="text"  value=@ViewData["visit_id"].ToString() /></div>
         <div class="unit">
             次住院</div>
         <div class="lefttext">
             病案号：</div>
         <div class="valueitem">
-            <input class="threeworldtextbox" type="text" /></div>
+            <input class="threeworldtextbox" type="text" value=@pat_visit.INP_NO/></div>
     </div>
     <div class="doublethinline">
     </div>
