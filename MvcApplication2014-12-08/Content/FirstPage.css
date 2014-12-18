@@ -1,15 +1,14 @@
 ﻿
-.background
+.darkborder
 {
 	margin-left: auto;
 	margin-right: auto;
 	background-color: #FFF;
+	border:0.1px solid;
+	-moz-border-radius:5px; 
+	box-shadow: 10px 10px 5px #888888;
 }
-#body {
-    clear: both;
-    padding-bottom: 35px;
-    background-color: black;
-}
+
 #hospitalname
 {
 	width: auto;

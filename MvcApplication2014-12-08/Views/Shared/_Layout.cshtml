@@ -51,7 +51,7 @@
     <div data-options="region:'west',split:true,title:'West'" style="width: 200px; padding: 10px;">
         west content</div>
     <div data-options="region:'center',title:'Center'">
-        <div id="body">
+        <div @*id="body"*@>
             @RenderSection("featured", required: false)
             <section class="content-wrapper main-content clear-fix">
                 @RenderBody()
