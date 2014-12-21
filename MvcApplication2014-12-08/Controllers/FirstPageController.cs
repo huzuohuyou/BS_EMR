@@ -30,7 +30,30 @@ namespace MvcApplication2014_12_08.Controllers
             };
             return View("FirstPage",pat_visit);
         }
+        ///// <summary>
+        ///// 首页保存方法，测试从view获取信息
+        ///// </summary>
+        //public void SaveFirstPage(pat_visit p)
+        //{
 
+        ////p.
+        //}
+        //[HttpGet]
+        //public ActionResult SaveFirstPage()
+        //{
+        //    return View();
+        //}
+
+        [HttpPost]
+        public ActionResult SaveFirstPage(pat_visit p)
+        {
+            string a = p.myID;
+            string b = p.INP_NO;
+            return View();
+        }
+        /// <summary>
+        /// 测试
+        /// </summary>
         public void GetPat_Visit()
         {
             EF_EMREntities ef_emr = new EF_EMREntities();

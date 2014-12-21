@@ -1,7 +1,9 @@
 ﻿@{var pat_visit = (MvcApplication2014_12_08.Models.pat_visit)ViewData.Model;}
+@using(Html.BeginForm()){
+  
 <div class="darkborder">
     <div id="hospitalname">
-        XXX省第一人民医院
+        XXX省第一人民医院<input type = "submit" value = "SaveFirstPage" />
     </div>
     <div class="emrtitle">
         住&nbsp 院&nbsp 病&nbsp 案&nbsp 首 &nbsp 页</div>
@@ -723,3 +725,4 @@
         （二）凡可由医院信息系统提供住院费用清单的，住院病案首页中可不填写“住院费用”
     </div>
 </div>
+} 

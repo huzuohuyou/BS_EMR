@@ -655,7 +655,7 @@
     </Options>
     <!-- Diagram content (shape and connector positions) -->
     <Diagrams>
-      <Diagram Name="pat_visit" ZoomLevel="94">
+      <Diagram Name="pat_visit" ZoomLevel="91">
         <EntityTypeShape EntityType="EF_EMRModel.PAT_MASTER_INDEX" Width="1.5" PointX="0.75" PointY="0.75" Height="6.1724658203125" IsExpanded="true" />
         <EntityTypeShape EntityType="EF_EMRModel.PAT_VISIT" Width="1.5" PointX="5.25" PointY="0.875" Height="32.72420328776041" IsExpanded="true" />
       </Diagram>
