@@ -176,7 +176,7 @@
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
     <Compile Include="Models\AccountModels.cs" />
-    <Compile Include="Models\pat_visit.cs" />
+    <Compile Include="Models\Pat_VisitModels.cs" />
     <Compile Include="pat_visit.Designer.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>

@@ -1,5 +1,6 @@
-﻿@{var pat_visit = (MvcApplication2014_12_08.Models.pat_visit)ViewData.Model;}
-@using(Html.BeginForm()){
+﻿@*@{var pat_visit = (MvcApplication2014_12_08.Models.Pat_VisitModels)ViewData.Model;}*@
+@model MvcApplication2014_12_08.Models.Pat_VisitModels
+@using(Html.BeginForm("SaveFirstPage","FirstPage")){
   
 <div class="darkborder">
     <div id="hospitalname">
@@ -25,7 +26,9 @@
         <div class="lefttext">
             病案号：</div>
         <div class="valueitem">
-            <input class="threeworldtextbox" type="text" value=@pat_visit.INP_NO/></div>
+           @* <input class="threeworldtextbox" type="text" value=""/>*@
+             @Html.TextBoxFor(m => m.INP_NO)
+            </div>
     </div>
     <div class="doublethinline">
     </div>

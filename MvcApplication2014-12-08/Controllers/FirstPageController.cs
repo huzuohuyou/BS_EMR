@@ -15,6 +15,8 @@ namespace MvcApplication2014_12_08.Controllers
 
         public ActionResult Index()
         {
+            //pat_visit p =
+           
             return View();
         }
         /// <summary>
@@ -22,8 +24,8 @@ namespace MvcApplication2014_12_08.Controllers
         /// </summary>
         public ActionResult FirstPage()
         {
-            ViewData.Add("visit_id", 1);
-            var pat_visit = new pat_visit {
+            ViewData.Add("visit_id", "zhuyuancishu");
+            var pat_visit = new Pat_VisitModels {
             myID="1",
             PATIENT_ID="998",
             INP_NO="hao123"
@@ -45,11 +47,12 @@ namespace MvcApplication2014_12_08.Controllers
         //}
 
         [HttpPost]
-        public ActionResult SaveFirstPage(pat_visit p)
+        public ActionResult SaveFirstPage(Pat_VisitModels p)
         {
+
             string a = p.myID;
             string b = p.INP_NO;
-            return View();
+            return View("FirstPage");
         }
         /// <summary>
         /// 测试
