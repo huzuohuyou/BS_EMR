@@ -50,8 +50,9 @@ namespace MvcApplication2014_12_08.Controllers
         public ActionResult SaveFirstPage(Pat_VisitModels p)
         {
 
-            string a = p.myID;
-            string b = p.INP_NO;
+            //string a = p["visit_id"].ToString();
+            //string b = p["INP_NO"].ToString();
+            string c = p.INP_NO;
             return View("FirstPage");
         }
         /// <summary>
