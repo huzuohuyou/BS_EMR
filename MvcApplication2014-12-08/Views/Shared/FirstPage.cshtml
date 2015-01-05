@@ -18,17 +18,26 @@
                 <option>未知</option>
             </select></div>
         <div class="lefttext">
+            主键ID：</div>
+        <div class="valueitem">
+            <input class="threeworldtextbox" type="text" name="ID" value=@Model.ID />
+        </div>
+        <div class="lefttext">
             第</div>
         <div class="valueitem">
-            <input class="threeworldtextbox" type="text" name ="visit_id" value=@ViewData["visit_id"].ToString() /></div>
+            <input class="threeworldtextbox" type="text" name ="myID" value=@Model.myID /></div>
         <div class="unit">
             次住院</div>
         <div class="lefttext">
             病案号：</div>
         <div class="valueitem">
             <input class="threeworldtextbox" type="text" name="INP_NO" value=@Model.INP_NO />
-             @*@Html.TextBoxFor(m => m.INP_NO)*@
-            </div>
+        </div>
+        <div class="lefttext">
+            病人id：</div>
+        <div class="valueitem">
+            <input class="threeworldtextbox" type="text" name="PATIENT_ID" value=@Model.PATIENT_ID />
+        </div>
     </div>
     <div class="doublethinline">
     </div>

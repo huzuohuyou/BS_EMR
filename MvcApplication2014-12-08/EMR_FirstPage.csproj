@@ -182,7 +182,6 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>pat_visit.edmx</DependentUpon>
     </Compile>
-    <Compile Include="pat_visit.Views.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>

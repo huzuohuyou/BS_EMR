@@ -15,7 +15,7 @@
 			{ field: 'status', title: 'Status', width: 60, align: 'center' }
 		]],
     groupField: 'productid',
-    view: groupview,
+//    view: groupview,
     groupFormatter: function (value, rows) {
         return value + ' - ' + rows.length + ' Item(s)';
     }
