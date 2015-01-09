@@ -176,7 +176,9 @@
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
     <Compile Include="Models\AccountModels.cs" />
-    <Compile Include="Models\Pat_VisitModels.cs" />
+    <Compile Include="Models\PAT_VISITModels.cs">
+      <SubType>Code</SubType>
+    </Compile>
     <Compile Include="pat_visit.Designer.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
@@ -642,6 +644,7 @@
       <LastGenOutput>pat_visit.Designer.cs</LastGenOutput>
     </EntityDeploy>
     <None Include="Views\Account\datagrid_data1.json" />
+    <Content Include="Views\View1.cshtml" />
   </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>
@@ -658,8 +661,8 @@
       <FlavorProperties GUID="{349c5851-65df-11da-9384-00065b846f21}">
         <WebProjectProperties>
           <UseIIS>False</UseIIS>
-          <AutoAssignPort>True</AutoAssignPort>
-          <DevelopmentServerPort>5181</DevelopmentServerPort>
+          <AutoAssignPort>False</AutoAssignPort>
+          <DevelopmentServerPort>8989</DevelopmentServerPort>
           <DevelopmentServerVPath>/</DevelopmentServerVPath>
           <IISUrl>http://localhost/MvcApplication2014-12-08</IISUrl>
           <OverrideIISAppRootUrl>True</OverrideIISAppRootUrl>

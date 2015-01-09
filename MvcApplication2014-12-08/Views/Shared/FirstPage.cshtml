@@ -1,5 +1,4 @@
-﻿@*@{var pat_visit = (MvcApplication2014_12_08.Models.Pat_VisitModels)ViewData.Model;}*@
-@model MvcApplication2014_12_08.Models.Pat_VisitModels
+﻿@Model  MvcApplication2014_12_08.Models.PAT_VISITModels
 @using(Html.BeginForm("SaveFirstPage","FirstPage")){
   
 <div class="darkborder">
@@ -12,11 +11,15 @@
         <div class="lefttext">
             医疗付费方式：</div>
         <div class="valueitem">
+       
             <select>
-                <option>男</option>
-                <option>女</option>
-                <option>未知</option>
-            </select></div>
+                @foreach (MvcApplication2014_12_08.PAT_VISIT item in Model)
+                {
+                    <option>@item.INP_NO</option>
+                }
+                
+            </select>
+            </div>
         <div class="lefttext">
             主键ID：</div>
         <div class="valueitem">

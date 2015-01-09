@@ -7,6 +7,9 @@ using MvcApplication2014_12_08.Models;
 using ToolFunction;
 using System.Data;
 using System.Data.Entity.Infrastructure;
+using System.Data.Entity;
+using System.Data.Objects;
+using System.Collections;
 
 namespace MvcApplication2014_12_08.Controllers
 {
@@ -26,15 +29,45 @@ namespace MvcApplication2014_12_08.Controllers
         /// </summary>
         public ActionResult FirstPage()
         {
-            ViewData.Add("visit_id", "zhuyuancishu");
-            var pat_visit = new Pat_VisitModels
+            
+            //使用SQO(标准查询运算符),查询
+            //实际返回的是IQueryable 接口的之类对象
+            //IQueryable<Models.Customer> query = db.Customers.Where(d => d.Address == "111");
+            //这样转有可能报异常 EnumerableQuery<Models.Customer> query = (EnumerableQuery<Models.Customer>)db.Customers.Where(d => d.Address == "111");
+            //DbQuery 支持延迟加载，就是只有使用到数据的时候，才去查询数据库
+            
+            //DbQuery<Models.Customer> query = db.Customers.Where(d => d.Address == "111") as DbQuery<Models.Customer>;
+            //List<Models.Customer> list = query.ToList();
+            //也可以这样
+            // List<Models.Customer> list = db.Customers.Where(d => d.Address == "111").ToList();
+            //用第二种方式:使用Linq语句,该语法只是给程序员用的,.net编译器会在编译程序集的时候把它转化为SQO
+            //IQueryable<Models.Customer> query = from d in db.Customers where d.Address == "111" select d;
+            //List<Models.Customer> list = (from d in db.Customers where d.Address == "111" select d).ToList();
+
+           // List<Models.Customer> list = (from d in db.Customers select d).ToList();
+           ////使用ViewData将数据传给View
+           // ViewData["DataList"] = list;
+           // return View();
+            //ViewData.Add("visit_id", "zhuyuancishu");
+            //var pat_visit = new Pat_VisitModels
+            //{
+            //    ID = "8e27f912-a6bd-4e3a-8e8b-bff38dd0e621",
+            //    myID = "1",
+            //    PATIENT_ID = "998",
+            //    INP_NO = "hao123"
+            //};
+            //ViewBag.pi = patinfo;
+            var db = new STUDYEntities1();
+            //ObjectQuery<PAT_VISIT> pats1 = db.CreateQuery<PAT_VISIT>();
+            IQueryable<PAT_VISIT> pats = from p in db.PAT_VISIT
+                                        select p;
+            List<PAT_VISIT> items = new List<PAT_VISIT>();
+            foreach (var item in pats)
             {
-                ID = "8e27f912-a6bd-4e3a-8e8b-bff38dd0e621",
-                myID = "1",
-                PATIENT_ID = "998",
-                INP_NO = "hao123"
-            };
-            return View("FirstPage",pat_visit);
+                items.Add(item);
+            }
+            ViewBag.fkfs = items;
+            return View("FirstPage",items);
         }
         ///// <summary>
         ///// 首页保存方法，测试从view获取信息
@@ -51,7 +84,7 @@ namespace MvcApplication2014_12_08.Controllers
         //}
 
         [HttpPost]
-        public ActionResult SaveFirstPage(Pat_VisitModels p)
+        public ActionResult SaveFirstPage(PAT_VISITModels p)
         {
             //数据库插入
             //var pp = new PAT_VISIT{
