@@ -24,32 +24,32 @@ namespace MvcApplication2014_12_08
     /// <summary>
     /// 没有元数据文档可用。
     /// </summary>
-    public partial class STUDYEntities1 : ObjectContext
+    public partial class STUDYEntities3 : ObjectContext
     {
         #region 构造函数
     
         /// <summary>
-        /// 请使用应用程序配置文件的“STUDYEntities1”部分中的连接字符串初始化新 STUDYEntities1 对象。
+        /// 请使用应用程序配置文件的“STUDYEntities3”部分中的连接字符串初始化新 STUDYEntities3 对象。
         /// </summary>
-        public STUDYEntities1() : base("name=STUDYEntities1", "STUDYEntities1")
+        public STUDYEntities3() : base("name=STUDYEntities3", "STUDYEntities3")
         {
             this.ContextOptions.LazyLoadingEnabled = true;
             OnContextCreated();
         }
     
         /// <summary>
-        /// 初始化新的 STUDYEntities1 对象。
+        /// 初始化新的 STUDYEntities3 对象。
         /// </summary>
-        public STUDYEntities1(string connectionString) : base(connectionString, "STUDYEntities1")
+        public STUDYEntities3(string connectionString) : base(connectionString, "STUDYEntities3")
         {
             this.ContextOptions.LazyLoadingEnabled = true;
             OnContextCreated();
         }
     
         /// <summary>
-        /// 初始化新的 STUDYEntities1 对象。
+        /// 初始化新的 STUDYEntities3 对象。
         /// </summary>
-        public STUDYEntities1(EntityConnection connection) : base(connection, "STUDYEntities1")
+        public STUDYEntities3(EntityConnection connection) : base(connection, "STUDYEntities3")
         {
             this.ContextOptions.LazyLoadingEnabled = true;
             OnContextCreated();

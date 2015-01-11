@@ -22,7 +22,7 @@
     <!-- CSDL content -->
     <edmx:ConceptualModels>
       <Schema Namespace="STUDYModel" Alias="Self" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns="http://schemas.microsoft.com/ado/2008/09/edm">
-        <EntityContainer Name="STUDYEntities1" annotation:LazyLoadingEnabled="true">
+        <EntityContainer Name="STUDYEntities3" annotation:LazyLoadingEnabled="true">
           <EntitySet Name="PAT_VISIT" EntityType="STUDYModel.PAT_VISIT" />
         </EntityContainer>
         <EntityType Name="PAT_VISIT">
@@ -39,7 +39,7 @@
     <!-- C-S mapping content -->
     <edmx:Mappings>
       <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2008/09/mapping/cs">
-        <EntityContainerMapping StorageEntityContainer="STUDYModelStoreContainer" CdmEntityContainer="STUDYEntities1">
+        <EntityContainerMapping StorageEntityContainer="STUDYModelStoreContainer" CdmEntityContainer="STUDYEntities3">
           <EntitySetMapping Name="PAT_VISIT">
             <EntityTypeMapping TypeName="STUDYModel.PAT_VISIT">
               <MappingFragment StoreEntitySet="PAT_VISIT">
@@ -70,7 +70,7 @@
     </Options>
     <!-- Diagram content (shape and connector positions) -->
     <Diagrams>
-      <Diagram Name="pat_visit">
+      <Diagram Name="STUDY">
         <EntityTypeShape EntityType="STUDYModel.PAT_VISIT" Width="1.5" PointX="0.75" PointY="0.75" Height="1.735433756510417" IsExpanded="true" />
       </Diagram>
     </Diagrams>

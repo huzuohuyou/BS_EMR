@@ -1,5 +1,9 @@
-﻿@Model  MvcApplication2014_12_08.Models.PAT_VISITModels
-@using(Html.BeginForm("SaveFirstPage","FirstPage")){
+﻿@model MvcApplication2014_12_08.Models.PAT_VISITModels
+@{
+    string[] si = new string[] { "1", "2", "3" };
+    }
+@using (Html.BeginForm("SaveFirstPage", "FirstPage"))
+{
   
 <div class="darkborder">
     <div id="hospitalname">
@@ -11,35 +15,35 @@
         <div class="lefttext">
             医疗付费方式：</div>
         <div class="valueitem">
-       
+        @Html.DropDownList("fkfs",(IEnumerable<SelectListItem>)ViewBag.fkfs);
             <select>
-                @foreach (MvcApplication2014_12_08.PAT_VISIT item in Model)
+               
+              @*  @foreach (Model item in Model)
                 {
-                    <option>@item.INP_NO</option>
-                }
-                
+                    <option>@item</option>
+                }*@
             </select>
             </div>
         <div class="lefttext">
             主键ID：</div>
         <div class="valueitem">
-            <input class="threeworldtextbox" type="text" name="ID" value=@Model.ID />
+            <input class="threeworldtextbox" type="text" name="ID" @*value=@Model.ID*@ />
         </div>
         <div class="lefttext">
             第</div>
         <div class="valueitem">
-            <input class="threeworldtextbox" type="text" name ="myID" value=@Model.myID /></div>
+            <input class="threeworldtextbox" type="text" name ="myID"@* value=@Model.myID*@ /></div>
         <div class="unit">
             次住院</div>
         <div class="lefttext">
             病案号：</div>
         <div class="valueitem">
-            <input class="threeworldtextbox" type="text" name="INP_NO" value=@Model.INP_NO />
+            <input class="threeworldtextbox" type="text" name="INP_NO" @*value=@Model.INP_NO*@ />
         </div>
         <div class="lefttext">
             病人id：</div>
         <div class="valueitem">
-            <input class="threeworldtextbox" type="text" name="PATIENT_ID" value=@Model.PATIENT_ID />
+            <input class="threeworldtextbox" type="text" name="PATIENT_ID" @*value=@Model.PATIENT_ID*@ />
         </div>
     </div>
     <div class="doublethinline">
