@@ -25,7 +25,7 @@ namespace ToolFunction
         private Thread t = null;
         public static string ErrorLogPath = null;
         public static Dictionary<string, TabPage> dicpage = new Dictionary<string, TabPage>();
-        public static string STRCONN = "";
+        public static string strConn = "";
         public static OleDbConnection conn = null;
         public static OleDbCommand cmd = null;
         public static OleDbTransaction oratra = null;
@@ -103,6 +103,10 @@ namespace ToolFunction
                 throw ex;
             }
         }
+        /// <summary>
+        /// 记录错误信息
+        /// </summary>
+        /// <param name="mess">错误信息</param>
         public static void WriteErrorLog(string mess)
         {
             StreamWriter sw = null;
@@ -139,6 +143,82 @@ namespace ToolFunction
             }
 
         }
+
+        /// <summary>
+        /// 写日志信息
+        /// </summary>
+        /// <param name="mess">个性化信息</param>
+        public static void WriteLog(string mess)
+        {
+            WriteLog(new Exception(), mess);
+        }
+        /// <summary>
+        /// 写日志信息
+        /// </summary>
+        /// <param name="ex">异常信息</param>
+        /// <param name="mess">个性化信息</param>
+        public static void WriteLog(Exception ex, string mess)
+        {
+            XmlDocument doc = new XmlDocument();
+            try
+            {
+                doc.Load(Application.StartupPath + @"\" + Application.ProductName + "Log.xml");
+            }
+            catch (FileNotFoundException)
+            {
+                CreateLongFile(doc);
+            }
+            AppendLogMessage(doc, ex, mess);
+        }
+        /// <summary>
+        /// 没有日志文件创建日志文件
+        /// </summary>
+        /// <param name="doc">xml文件</param>
+        public static void CreateLongFile(XmlDocument doc)
+        {
+            XmlDeclaration dec = doc.CreateXmlDeclaration("1.0", "GB2312", null);
+            doc.AppendChild(dec);
+            XmlNode root = doc.CreateElement("系统错误日志");
+            doc.AppendChild(root);
+            doc.Save(Application.StartupPath + @"\" + Application.ProductName + "Log.xml");
+        }
+        /// <summary>
+        /// 成功载入Log文件并添加节点日志信息
+        /// </summary>
+        /// <param name="doc">载入的xml文件</param>
+        /// <param name="ex">异常信息</param>
+        /// <param name="mess">传入个性化信息</param>
+        private static void AppendLogMessage(XmlDocument doc, Exception ex, string mess)
+        {
+            try
+            {
+                //载入日志文件
+                doc.Load(Application.StartupPath + @"\" + Application.ProductName + "Log.xml");
+                //创建节点(一级)
+                XmlNode root = doc.SelectSingleNode("系统错误日志");
+                //创建节点（二级）
+                XmlNode node = doc.CreateElement("Log");
+                //创建节点（三级）
+                XmlElement element1 = doc.CreateElement("Time");
+                element1.InnerText = DateTime.Now.ToString("yyyy-MM-dd");
+                node.AppendChild(element1);
+                XmlElement element2 = doc.CreateElement("User");
+                element2.InnerText = "User";
+                node.AppendChild(element2);
+                XmlElement element3 = doc.CreateElement("StackTrace");
+                element3.InnerText = ex.ToString();
+                node.AppendChild(element3);
+                XmlElement element4 = doc.CreateElement("Message");
+                element4.InnerText = mess;
+                node.AppendChild(element4);
+                root.AppendChild(node);
+                doc.Save(Application.StartupPath + @"\" + Application.ProductName + "Log.xml");
+            }
+            catch (Exception)
+            {
+                throw;
+            }
+        }
         #endregion
 
         #region 窗体域usercontrol的绑定
@@ -151,11 +231,13 @@ namespace ToolFunction
         {
             uc.Dock = DockStyle.Fill;
             f.StartPosition = FormStartPosition.CenterParent;
-            //f.TopMost = true;
             f.Controls.Add(uc);
             return f.ShowDialog();
         }
-
+        /// <summary>
+        /// 添加一个用户控件到一个1024*768的窗体中
+        /// </summary>
+        /// <param name="uc"></param>
         public static void AddForm2(UserControl uc)
         {
             Form f = new Form();
@@ -649,10 +731,8 @@ namespace ToolFunction
         /// <returns>返回表</returns>
         static public DataTable ExecuteBySQL(string sql, Dictionary<string, string> dictionary, string tablename)
         {
-            OleDbConnection conn = new OleDbConnection(GetConnString());
+            OleDbConnection conn = new OleDbConnection(strConn);
             OleDbCommand cmd = conn.CreateCommand();
-            //OracleConnection conn = new OracleConnection(GetConnString());
-            //OracleCommand cmd = conn.CreateCommand();
             try
             {
                 conn.Open();
@@ -691,7 +771,7 @@ namespace ToolFunction
         {
             try
             {
-                conn = new OleDbConnection(GetConnString());
+                conn = new OleDbConnection(strConn);
                 conn.Open();
                 cmd = conn.CreateCommand();
                 oratra = conn.BeginTransaction();
@@ -784,7 +864,7 @@ namespace ToolFunction
         /// <returns>返回结果</returns>
         static public int ExecutenonQuery(string sql, Dictionary<string, string> dictionary)
         {
-            OleDbConnection conn = new OleDbConnection(GetConnString());
+            OleDbConnection conn = new OleDbConnection(strConn);
             OleDbCommand cmd = conn.CreateCommand();
             //OracleConnection conn = new OracleConnection(GetConnString());
             //OracleCommand cmd = conn.CreateCommand();
@@ -807,16 +887,20 @@ namespace ToolFunction
             return n;
         }
         /// <summary>
-        /// 通过APP.config文件获取连接数据库字符串
+        /// 通过APP.config|web.config文件获取连接数据库字符串
         /// 注意配置文件中的空格ConfigurationManager.ConnectionStrings["sqlConnectionString"].ToString();
         /// </summary>
-        /// <returns></returns>
-        private static string GetConnString()
+        private static void GetConnString()
         {
-            //string strconn = System.Configuration.ConfigurationSettings.AppSettings["StrConn"].ToString();
-            //STRCONN = ConfigurationManager.ConnectionStrings["sqlConnectionString"].ConnectionString;
-            STRCONN = ConfigurationManager.ConnectionStrings["sqlConnectionString"].ConnectionString;
-            return STRCONN;
+            try
+            {
+                strConn = ConfigurationManager.ConnectionStrings["sqlConnectionString"].ConnectionString;
+            }
+            catch (Exception ex)
+            {
+                WriteErrorLog(ex.ToString());
+            }
+            
         }
 
         /// <summary>
@@ -844,7 +928,6 @@ namespace ToolFunction
                         {
                             string values;
                             dictionary.TryGetValue(obj.ToString(), out values);
-                            //cmd.Parameters.Add(nIndex.ToString(), OleDbType.VarChar).Value = values;
                             cmd.Parameters.Add(new OleDbParameter(strParm, values));
                             
                         }
@@ -857,14 +940,6 @@ namespace ToolFunction
                 else
                     nIndex = -1;
             }
-            //if (dictionary != null)
-            //{
-            //    foreach (object obj in dictionary.Keys)
-            //    {
-            //        string strParm = ":" + obj.ToString();
-            //        sqltxt = sqltxt.Replace(strParm, "?");
-            //    }
-            //}
             cmd.CommandText = sqltxt;
             return true;
         }
